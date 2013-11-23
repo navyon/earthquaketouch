@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZBar CameraTest</string>
+    <string name="quake_feed">
+        http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/2.5_day.atom
+    </string>
+</resources>
