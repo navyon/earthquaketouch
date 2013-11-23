@@ -19,6 +19,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -61,29 +62,24 @@ public class EarthquakeListFragment extends ListFragment  {
     refreshEarthquakes();
   }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.earthquake,container, false);
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        // TODO Auto-generated method stub
+        super.onListItemClick(l, v, position, id);
+        String libraryList;
+
+        //Get the position the user clicked.
+        Fragment newFragment = null;
+
+        libraryList = l.getItemAtPosition(position).toString();
+
+
+        Toast.makeText(this.getActivity(),libraryList.toString(), Toast.LENGTH_LONG).show();
 
 
 
 
 
-        return view;
-    }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
-    }
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        if (activity instanceof AdapterView.OnItemSelectedListener) {
-            listener = (AdapterView.OnItemSelectedListener) activity;
-        } else {
-            throw new ClassCastException(activity.toString()
-                    + " must implemenet MyListFragment.OnItemSelectedListener");
-        }
+
     }
 
   public void refreshEarthquakes() {
